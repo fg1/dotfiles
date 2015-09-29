@@ -32,7 +32,7 @@ fi
 if [[ -f ~/.pythonrc.py ]] ; then
     export PYTHONSTARTUP=~/.pythonrc.py
 fi
-export PYTHONPATH=$PYTHONPATH:'.':'~/Code'
+export PYTHONPATH=$PYTHONPATH:'.':$HOME'/Code'
 
 # support colors in less
 export LESS_TERMCAP_mb=$'\E[01;31m'
