@@ -1,4 +1,4 @@
-! Colors
+!! Colors
 URxvt.foreground: White
 URxvt.background: #0A0A0A
 URxvt.color0: #000000
@@ -18,11 +18,14 @@ URxvt.color13: #F854F8
 URxvt.color14: #50FCF8
 URxvt.color15: #F8FCF8
 
-! UI
+!! UI
 URxvt.geometry: 150x28
 URxvt.scrollBar: off
-URxvt.font: xft:monaco:size=8:antialias=true
+! URxvt.font: xft:monaco:size=8:antialias=true
+URxvt.font: xft:SourceCodePro-Medium:size=10:antialias=true
+urxvt*letterSpace: -1
+urxvt*lineSpace: -1
 URxvt.termName: rxvt-256color
 
-! Icon
-URxvt.iconFile:    /usr/share/icons/elementary/apps/48/terminal.svg
+!! Icon
+URxvt.iconFile:    /usr/share/icons/Tango/scalable/apps/terminal.svg
