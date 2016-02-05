@@ -111,7 +111,9 @@ alias tree='tree -F --dirsfirst'
 alias killuser='skill -KILL -u'
 
 alias svnignore='svn propedit svn:ignore .'
-alias svndiff='svn diff | colordiff | less'
+svndiff() {
+    svn diff $1 | colordiff | less
+}
 svnautoremove () {
     svn status | grep '^!' | sed "s/^[^ ]*\s*//" | sed 's/./\\&/g' | xargs svn remove
 }
