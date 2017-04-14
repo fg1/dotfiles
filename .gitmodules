@@ -1,0 +1,18 @@
+[submodule "vim/.vim/pack/plugins/start/molokai"]
+	path = vim/.vim/pack/plugins/start/molokai
+	url = https://github.com/tomasr/molokai
+[submodule "vim/.vim/pack/plugins/start/nerdtree"]
+	path = vim/.vim/pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/.vim/pack/plugins/start/vim-renamer"]
+	path = vim/.vim/pack/plugins/start/vim-renamer
+	url = https://github.com/qpkorr/vim-renamer.git
+[submodule "vim/.vim/pack/plugins/start/vim-airline"]
+	path = vim/.vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/.vim/pack/plugins/start/vim-airline-themes"]
+	path = vim/.vim/pack/plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "vim/.vim/pack/plugins/start/vimux"]
+	path = vim/.vim/pack/plugins/start/vimux
+	url = https://github.com/benmills/vimux
