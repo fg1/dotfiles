@@ -1,4 +1,8 @@
 
+if !has("packages")
+    execute pathogen#infect('pack/plugins/start/{}')
+endif
+
 set nocompatible
 set encoding=utf-8
 set noerrorbells
