@@ -60,8 +60,11 @@ set shiftround
 function! <SID>CallInterpreter()
     if match(getline(1), '^\#!') == 0
         let l:interpreter = getline(1)[2:]
-        "VimuxRunCommand(l:interpreter . " " . bufname("%"))
-        exec ("!".l:interpreter." %:p")
+        if empty($TMUX_PANE)
+            exec ("!".l:interpreter." %:p")
+        else
+            VimuxRunCommand(l:interpreter . " " . bufname("%"))
+        endif
     else
         echohl ErrorMsg | echo "Err: No shebang present in file, canceling execution" | echohl None
     endif
@@ -84,3 +87,6 @@ if has('autocmd')
 
     autocmd BufRead,BufNewFile *.md set filetype=markdown
 endif
+
+let g:VimuxHeight = 50
+let g:VimuxOrientation = "h"
