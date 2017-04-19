@@ -1,0 +1,14 @@
+shell -$SHELL
+term screen-256color
+
+startup_message off
+defscrollback 1000
+hardstatus alwayslastline "%{b kw}%H %{r}%1` %{w}| %{g}%c %{w}| %{-b kw}%u %-Lw%{= rW}%50> %n%f %t %{-}%+Lw%<"
+activity ''
+
+# To make scrollback work, all you need to do is tell Screen not send the termcap 
+# initialisation and deinitialisation strings, at least in things that claim to 
+# be X-based terminal emulators:
+termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
+
+nonblock on
