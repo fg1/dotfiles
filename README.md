@@ -9,10 +9,8 @@ On Debian/Ubuntu:
 ```
 # apt-get install stow
 $ cd ~
-$ git clone https://github.com/fg1/dotfiles.git
-$ cd dotfiles
-$ git submodule init
-$ git submodule update
+$ git clone --recursive https://github.com/fg1/dotfiles.git .dotfiles
+$ cd .dotfiles
 
 $ stow ...
 ```
