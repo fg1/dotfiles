@@ -284,3 +284,9 @@ tcx2gpx() {
     gpsbabel -i gtrnctr -f $1 -o gpx -F $1:r.gpx
 }
 
+
+#-----------------------------------------------------------------------------
+
+if type "direnv" > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
