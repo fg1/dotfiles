@@ -15,7 +15,7 @@ export EDITOR=${EDITOR:-vim}
 
 if [[ `uname` == 'Darwin' ]]; then
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
-else
+fi
 
 # Are we connected via SSH?
 if [[ -z "$SSH_CONNECTION" ]] ; then
