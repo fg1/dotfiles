@@ -13,6 +13,10 @@ export SHELL='/bin/zsh'
 export PAGER=${PAGER:-less}
 export EDITOR=${EDITOR:-vim}
 
+if [[ `uname` == 'Darwin' ]]; then
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
+else
+
 # Are we connected via SSH?
 if [[ -z "$SSH_CONNECTION" ]] ; then
     PROMPT_HOST=""
@@ -96,7 +100,11 @@ fi
 alias x='startx -- -dpi 110'
 alias s='screen -xaAR'
 alias t='if tmux has; then tmux attach; else tmux new; fi'
-alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
+if [[ `uname` == 'Darwin' ]]; then
+    alias ls='gls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
+else
+    alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
+fi
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -lA'
