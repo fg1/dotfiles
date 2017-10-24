@@ -14,7 +14,7 @@ export PAGER=${PAGER:-less}
 export EDITOR=${EDITOR:-vim}
 
 if [[ `uname` == 'Darwin' ]]; then
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH:/usr/local/texlive/2017/bin/x86_64-darwin"
 fi
 
 # Are we connected via SSH?
@@ -128,6 +128,14 @@ svnautoremove () {
 svnautoadd () {
     svn status | grep '^?' | sed "s/^[^ ]*\s*//" | sed 's/./\\&/g' | xargs svn add
 }
+
+if [[ `uname` == 'Darwin' ]]; then
+    cdf () {
+        # Goes to the folder currently opened in Finder
+        # From: https://github.com/herrbischoff/awesome-osx-command-line
+        cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
+    }
+fi
 
 
 #-----------------------------------------------------------------------------
