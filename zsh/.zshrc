@@ -262,12 +262,21 @@ http() {
     else
         PORT=${1:-8080}
     fi
-    if [ "$PORT" == 80 ]; then
-        ip addr | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/' | sed 's/\///' | awk '{print "\033[34;01mhttp://"$1"\033[00m"}'
+
+    if [[ `uname` == 'Darwin' ]]; then
+        if [ "$PORT" == 80 ]; then
+            ifconfig | egrep -o 'inet ([0-9]{1,3}\.){3}[0-9]{1,3}' | awk '{print "\033[34;01mhttp://"$2"\033[00m"}'
+        else
+            ifconfig | egrep -o 'inet ([0-9]{1,3}\.){3}[0-9]{1,3}' | awk -v port=$PORT '{print "\033[34;01mhttp://" $2 ":" port "\033[00m"}'
+        fi
     else
-        ip addr | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/' | sed "s/\//:$PORT/" | awk '{print "\033[34;01mhttp://"$1"\033[00m"}'
+        if [ "$PORT" == 80 ]; then
+            ip addr | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/' | sed 's/\///' | awk '{print "\033[34;01mhttp://"$1"\033[00m"}'
+        else
+            ip addr | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}/' | sed "s/\//:$PORT/" | awk '{print "\033[34;01mhttp://"$1"\033[00m"}'
+        fi
     fi
-    python -m SimpleHTTPServer $PORT
+    python3 -m http.server $PORT
 }
 
 # Starts a FTP server serving the current wording directory
