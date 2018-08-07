@@ -24,5 +24,8 @@
     # Pull in remote changes for the current repository and all its submodules
     p = !"git pull; git submodule foreach git pull origin master"
 
+    # Set upstream branch for push
+    pp = push --set-upstream origin master
+
 [include]
     path = ~/.gitconfig.local
