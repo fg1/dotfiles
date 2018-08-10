@@ -315,3 +315,8 @@ tcx2gpx() {
 if type "direnv" > /dev/null; then
     eval "$(direnv hook zsh)"
 fi
+
+#-----------------------------------------------------------------------------
+
+[[ -r "${HOME}/.zshrc.local" ]] && source "${HOME}/.zshrc.local"
+
