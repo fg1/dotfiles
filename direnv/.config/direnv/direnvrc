@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Add following line in .envrc:
+# layout python-venv
+# layout python-venv python2.7
+#
+layout_python-venv() {
+	if [[ -n $VIRTUAL_ENV ]]; then
+		VIRTUAL_ENV=$(realpath "${VIRTUAL_ENV}")
+	else
+		VIRTUAL_ENV=$PWD/.venv
+    fi
+    export VIRTUAL_ENV
+	if [[ ! -d $VIRTUAL_ENV ]]; then
+		local python=${1:-python3}
+		log_status "no venv found; creating $VIRTUAL_ENV"
+		virtualenv -p $python $VIRTUAL_ENV
+	fi
+	source $VIRTUAL_ENV/bin/activate
+}
