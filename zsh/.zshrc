@@ -118,6 +118,9 @@ alias du='du -h'
 alias tree='tree -F --dirsfirst'
 alias killuser='skill -KILL -u'
 
+alias ytmp3='youtube-dl -x --audio-format mp3 -o "%(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
+alias ytmp3p='youtube-dl -x --audio-format mp3 -o "%(playlist_index) - %(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
+
 alias svnignore='svn propedit svn:ignore .'
 svndiff() {
     svn diff $1 | colordiff | less
