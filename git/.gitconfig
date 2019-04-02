@@ -27,5 +27,8 @@
     # Set upstream branch for push
     pp = push --set-upstream origin master
 
+    # Add remote push url
+    rp = !"d() { git remote set-url --add --push origin $1; }; d"
+
 [include]
     path = ~/.gitconfig.local
