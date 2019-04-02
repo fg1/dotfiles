@@ -119,7 +119,7 @@ alias tree='tree -F --dirsfirst'
 alias killuser='skill -KILL -u'
 
 alias ytmp3='youtube-dl -x --audio-format mp3 -o "%(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
-alias ytmp3p='youtube-dl -x --audio-format mp3 -o "%(playlist_index) - %(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
+alias ytmp3p='youtube-dl -x --audio-format mp3 -o "%(playlist_index)s - %(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
 
 alias svnignore='svn propedit svn:ignore .'
 svndiff() {
@@ -310,6 +310,14 @@ svg2pdf() {
 # Usage: tcx2gpx [filename]
 tcx2gpx() {
     gpsbabel -i gtrnctr -f $1 -o gpx -F $1:r.gpx
+}
+
+# Sets http proxy environment variables
+setproxy() {
+    export http_proxy=http://$1
+    export https_proxy=http://$1
+    export HTTP_PROXY=http://$1
+    export HTTPS_PROXY=http://$1
 }
 
 
