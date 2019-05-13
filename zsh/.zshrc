@@ -109,7 +109,9 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -lA'
 alias grep='grep --color=auto --line-number'
-alias ack='ack-grep'
+if [[ -f /usr/bin/ack-grep ]] ; then
+    alias ack='ack-grep'
+fi
 alias i='grep'
 alias less='less -R'
 alias ps='ps -ef'
