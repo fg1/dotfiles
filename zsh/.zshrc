@@ -108,7 +108,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -lA'
-alias grep='grep --color=auto --line-number'
+alias grep='grep --color=auto'
 if [[ -f /usr/bin/ack-grep ]] ; then
     alias ack='ack-grep'
 fi
@@ -324,7 +324,7 @@ setproxy() {
 
 # Update the local clock using and HTTP request
 http_date() {
-	sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+	sudo date -s "$(curl -H 'Cache-Control: no-cache' -I 'https://google.com/' 2>/dev/null | grep -i '^date:' | sed 's/^[Dd]ate: //g')"
 }
 
 #-----------------------------------------------------------------------------
