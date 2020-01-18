@@ -316,10 +316,20 @@ tcx2gpx() {
 
 # Sets http proxy environment variables
 setproxy() {
-    export http_proxy=http://$1
-    export https_proxy=http://$1
-    export HTTP_PROXY=http://$1
-    export HTTPS_PROXY=http://$1
+    PROXY=${1:-localhost:3128}
+    echo "Set proxy to http://$PROXY"
+    export http_proxy=http://$PROXY
+    export https_proxy=http://$PROXY
+    export HTTP_PROXY=http://$PROXY
+    export HTTPS_PROXY=http://$PROXY
+}
+
+# Unsets http proxy environment variables
+noproxy() {
+    unset http_proxy
+    unset https_proxy
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
 }
 
 # Update the local clock using and HTTP request
