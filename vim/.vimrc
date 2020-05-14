@@ -94,3 +94,4 @@ endif
 
 let g:VimuxHeight = 50
 let g:VimuxOrientation = "h"
+let g:airline#extensions#tabline#enabled = 1
