@@ -14,7 +14,7 @@ export PAGER=${PAGER:-less}
 export EDITOR=${EDITOR:-vim}
 
 if [[ `uname` == 'Darwin' ]]; then
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH:/usr/local/texlive/2017/bin/x86_64-darwin"
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH:/usr/local/texlive/2021/bin/universal-darwin"
 fi
 
 # Are we connected via SSH?
