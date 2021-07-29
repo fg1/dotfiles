@@ -30,5 +30,11 @@
     # Add remote push url
     rp = !"d() { git remote set-url --add --push origin $1; }; d"
 
+    # Set user email address for a given repo
+    lemail = config user.email
+
+    # Set user name for a given repo
+    lname = config user.name
+
 [include]
     path = ~/.gitconfig.local

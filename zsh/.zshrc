@@ -144,6 +144,15 @@ if [[ `uname` == 'Darwin' ]]; then
     }
 fi
 
+if ! type python > /dev/null; then
+	alias python='python3'
+fi
+
+pyvenv () {
+	# Creates a python virtualenv using direnv
+	echo 'layout python-venv python3' > .envrc
+	direnv allow
+}
 
 #-----------------------------------------------------------------------------
 ### Terminal configuration

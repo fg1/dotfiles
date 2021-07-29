@@ -1,3 +1,4 @@
+*.a
 *.o
 *.so
 *.exe
@@ -18,3 +19,7 @@ Thumbs.db
 .envrc
 
 Untitled*.ipynb
+__pycache__
+build
+.mypy_cache
+events.out.*
