@@ -95,3 +95,13 @@ endif
 let g:VimuxHeight = 50
 let g:VimuxOrientation = "h"
 let g:airline#extensions#tabline#enabled = 1
+
+
+" Integration with fzf
+if filereadable("/usr/share/doc/fzf/examples/plugin/fzf.vim")
+	" Debian/Ubuntu
+	set rtp+=/usr/share/doc/fzf/examples
+elseif filereadable("/usr/local/opt/fzf/plugin/fzf.vim")
+	" Homebrew
+	set rtp+=/usr/local/opt/fzf
+endif
