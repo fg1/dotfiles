@@ -120,6 +120,7 @@ alias du='du -h'
 alias tree='tree -F --dirsfirst'
 alias killuser='skill -KILL -u'
 alias v='vim +FZF!'
+alias vg='vim +FZFgit'
 
 alias ytmp3='youtube-dl -x --audio-format mp3 -o "%(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
 alias ytmp3p='youtube-dl -x --audio-format mp3 -o "%(playlist_index)s - %(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'

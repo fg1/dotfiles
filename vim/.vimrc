@@ -105,3 +105,8 @@ elseif filereadable("/usr/local/opt/fzf/plugin/fzf.vim")
 	" Homebrew
 	set rtp+=/usr/local/opt/fzf
 endif
+
+function FZFgit()
+	call fzf#run({'source': 'git ls-files', 'sink': 'e'})
+endfun
+command FZFgit :call FZFgit()
