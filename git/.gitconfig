@@ -36,5 +36,8 @@
     # Set user name for a given repo
     lname = config user.name
 
+    # Push to all remotes
+    pushall = !"git remote | xargs -L1 git push --all"
+
 [include]
     path = ~/.gitconfig.local
