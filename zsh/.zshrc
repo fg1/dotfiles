@@ -13,6 +13,19 @@ export SHELL='/bin/zsh'
 export PAGER=${PAGER:-less}
 export EDITOR=${EDITOR:-vim}
 
+typeset -U path
+
+# Automatic PATH for rust
+if [[ -f $HOME/.cargo/bin/cargo ]]; then
+    path=($HOME/.cargo/bin $path)
+fi
+
+# Automatic PATH for go
+if [[ -f ~/go/bin/go ]]; then
+    path=($HOME/go/bin $HOME/gopath/bin $path)
+    export GOPATH=$HOME/gopath
+fi
+
 if [[ `uname` == 'Darwin' ]]; then
     export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH:/usr/local/texlive/2021/bin/universal-darwin"
 fi
