@@ -112,7 +112,7 @@ fi
 
 alias x='startx -- -dpi 110'
 alias s='screen -xaAR'
-alias t='if tmux has; then tmux attach; else tmux new; fi'
+alias t='tmux new-session -A -s default'
 if [[ `uname` == 'Darwin' ]]; then
     alias ls='gls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
 else
