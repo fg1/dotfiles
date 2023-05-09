@@ -16,3 +16,6 @@
 [submodule "vim/.vim/pack/plugins/start/vimux"]
 	path = vim/.vim/pack/plugins/start/vimux
 	url = https://github.com/benmills/vimux
+[submodule "vim/.vim/pack/plugins/start/vim-go"]
+	path = vim/.vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go
