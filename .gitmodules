@@ -19,3 +19,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-go"]
 	path = vim/.vim/pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule "vim/.vim/pack/plugins/start/kotlin-vim"]
+	path = vim/.vim/pack/plugins/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
