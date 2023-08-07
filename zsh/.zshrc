@@ -11,7 +11,6 @@
 
 export SHELL='/bin/zsh'
 export PAGER=${PAGER:-less}
-export EDITOR=${EDITOR:-vim}
 
 typeset -U path
 
@@ -132,8 +131,19 @@ alias df='df -h'
 alias du='du -h'
 alias tree='tree -F --dirsfirst'
 alias killuser='skill -KILL -u'
-alias v='vim +FZF!'
-alias vg='vim +FZFgit'
+
+if type "nvim" > /dev/null; then
+	export EDITOR=${EDITOR:-nvim}
+	alias vi='nvim'
+	alias vim='nvim'
+	alias v='nvim +FZF!'
+	alias vg='nvim +FZFgit'
+else
+	export EDITOR=${EDITOR:-vim}
+	alias vi='vim'
+	alias v='vim +FZF!'
+	alias vg='vim +FZFgit'
+fi
 
 alias ytmp3='youtube-dl -x --audio-format mp3 -o "%(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
 alias ytmp3p='youtube-dl -x --audio-format mp3 -o "%(playlist_index)s - %(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
