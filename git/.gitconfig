@@ -44,3 +44,9 @@
 
 [submodule]
 	recurse = true
+[init]
+	defaultBranch = main
+[diff]
+	algorithm = histogram
+[push]
+	autoSetupRemote = true
