@@ -26,7 +26,7 @@ if [[ -f ~/go/bin/go ]]; then
 fi
 
 if [[ `uname` == 'Darwin' ]]; then
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH:/usr/local/texlive/2021/bin/universal-darwin"
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH"
 fi
 
 # Are we connected via SSH?
@@ -113,7 +113,11 @@ alias x='startx -- -dpi 110'
 alias s='screen -xaAR'
 alias t='tmux new-session -A -s default'
 if [[ `uname` == 'Darwin' ]]; then
-    alias ls='gls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
+	if type "gls" > /dev/null; then
+		alias ls='gls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
+	else
+		alias ls='ls -G'
+	fi
 else
     alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable --group-directories-first --hide="*~"'
 fi
@@ -147,17 +151,6 @@ fi
 
 alias ytmp3='youtube-dl -x --audio-format mp3 -o "%(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
 alias ytmp3p='youtube-dl -x --audio-format mp3 -o "%(playlist_index)s - %(title)s.%(ext)s" --add-metadata --metadata-from-title "(?P<artist>.+?) - (?P<title>.+)"'
-
-alias svnignore='svn propedit svn:ignore .'
-svndiff() {
-    svn diff $1 | colordiff | less
-}
-svnautoremove () {
-    svn status | grep '^!' | sed "s/^[^ ]*\s*//" | sed 's/./\\&/g' | xargs svn remove
-}
-svnautoadd () {
-    svn status | grep '^?' | sed "s/^[^ ]*\s*//" | sed 's/./\\&/g' | xargs svn add
-}
 
 if [[ `uname` == 'Darwin' ]]; then
     cdf () {
