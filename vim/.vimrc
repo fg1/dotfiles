@@ -7,6 +7,7 @@ set nocompatible
 set encoding=utf-8
 set noerrorbells
 set novisualbell
+set mouse=
 
 set nospell
 set hidden
